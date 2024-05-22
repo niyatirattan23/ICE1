@@ -23,44 +23,39 @@ public class CardTrick {
 
         
         Card luckyCard = new Card();
-        luckyCard.setValue(3); // Example: 2 of Clubs
+        luckyCard.setValue(3); 
         luckyCard.setSuit("Hearts");
 
       
 
-       
+        boolean includeLuckyCard = rand.nextBoolean(); 
+        int luckyIndex = includeLuckyCard ? rand.nextInt(magicHand.length) : -1; 
         for (int i = 0; i < magicHand.length; i++) {
             if (i == luckyIndex) {
-                // Place the lucky card at the determined position
+                
                 magicHand[i] = luckyCard;
             } else {
                 Card c = new Card();
-                c.setValue(rand.nextInt(13) + 1); // Values from 1 to 13
-                c.setSuit(suits[rand.nextInt(suits.length)]); // Random suit
+                c.setValue(rand.nextInt(13) + 1); 
+                c.setSuit(suits[rand.nextInt(suits.length)]); 
                 magicHand[i] = c;
-            }
-        }
+            }}
 
        
         System.out.println("Magic Hand Cards:");
         for (Card card : magicHand) {
-            System.out.println(card.getValue() + " of " + card.getSuit());
-        }
+            System.out.println(card.getValue() + " of " + card.getSuit());}
 
-        // Check if the lucky card is in the magic hand
+        
         boolean found = false;
         for (Card card : magicHand) {
             if (card.equals(luckyCard)) {
                 found = true;
                 break;
-            }
-        }
+            }}
 
         
         if (found) {
             System.out.println("The lucky card {3 of Hearts} is in the magic hand. You win!");
         } else {
-            System.out.println("The lucky card {3 of Hearts} is not in the magic hand. You lose.");
-        }
-    }
-}
+            System.out.println("The lucky card {3 of Hearts} is not in the magic hand. You lose.");}}}
